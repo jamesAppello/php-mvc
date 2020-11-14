@@ -45,7 +45,7 @@
                 if (empty($data['pass'])) {
                     $data['pass_err'] = "Select a password to use for your account";
                 } 
-                if (!preg_match('#.*^(?=.{8,16})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#', $data['pass'])) {
+                if (!preg_match('/.*^(?=.{8,16})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/', $data['pass'])) {
                     $data['pass_err'] = "Password must have at least one integer|number\nPassword must have at least one string|letter character\nPassword must have at least ONE capital letter\nPassword must include one special character ($,#,%,!, etc.)";
                 }
                 if (empty($data['conf_pass'])) {
