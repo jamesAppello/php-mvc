@@ -44,8 +44,9 @@
                 }
                 if (empty($data['pass'])) {
                     $data['pass_err'] = "Select a password to use for your account";
-                } else if(strlen($data['pass'] <= 7)) {
-                    $data['pass_err'] = 'Your password should be at least 8 character bits in length';
+                } 
+                if (!preg_match('#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#', $data['pass'])) {
+                    $data['pass_err'] = "Password must have at least one integer|number\nPassword must have at least one string|letter character\nPassword must have at least ONE capital letter\nPassword must include one special character ($,#,%,!, etc.)";
                 }
                 if (empty($data['conf_pass'])) {
                     $data['conf_pass_err'] = "Retype your password to confirm you set the password you intend";
